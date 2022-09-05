@@ -1,0 +1,11 @@
+
+// It's Short circuit evaluation
+// {a && console.log();}
+// (if this part is true) && (this part will execute)
+// And it shorthand of:
+
+// if(condition){
+//    (this part will execute)
+// }
+
+// ----------------------------------------------------------------------------------------------------

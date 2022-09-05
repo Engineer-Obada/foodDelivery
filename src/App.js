@@ -7,23 +7,37 @@ import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import FavoriteIcon from '@mui/icons-material/Favorite';           
 import SummarizeIcon from '@mui/icons-material/Summarize';                      
 import SettingsIcon from '@mui/icons-material/Settings';                     
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import BannerName from './Component/BannerName';
 import SubMenuContainer from './Component/SubMenuContainer';
 import MenuCard from './Component/MenuCard';
+import  {MenuItems,Items}  from './Data/Data';
+import Food from './Component/Food';
+import ItemCard from './Component/ItemCard';
+import sa from './images/sa.png'
 function App () {
-
+ 
   useEffect(()=>{
     const menuLi = document.querySelectorAll('#menu li');
+    const menuItem = document.querySelectorAll('.rowMenuCard')
+    
     function setMenuActive(){
       menuLi.forEach((n) => n.classList.remove("active"));
       this.classList.add("active")
 
     }
 
-    menuLi.forEach( (n)=> n.addEventListener('click',setMenuActive))
-  },[])
+    function setMenuItemActive(){
 
+      menuItem.forEach((n)=> n.classList.remove('active'))
+      this.classList.add('active')
+
+    }
+
+    menuLi.forEach( (n)=> n.addEventListener('click',setMenuActive))
+    menuItem.forEach((n)=>n.addEventListener('click',setMenuItemActive))
+
+  },[])
 
   
   return (
@@ -47,28 +61,31 @@ function App () {
           <SubMenuContainer name={"Menu Category"} />
         </div>
         <div className='rowContainer'>
-          <div>
-            <MenuCard imgSrc={"https://media.istockphoto.com/photos/juicy-hamburger-on-white-background-picture-id1206323282?k=20&m=1206323282&s=612x612&w=0&h=yatlq6BHRCCvoTzFZLSwaJc0O8Quct_tRPWtH0dj9Fc="} name={"Burger"} />
-          </div>
 
-          <div>
-            <MenuCard imgSrc={"https://media.istockphoto.com/photos/juicy-hamburger-on-white-background-picture-id1206323282?k=20&m=1206323282&s=612x612&w=0&h=yatlq6BHRCCvoTzFZLSwaJc0O8Quct_tRPWtH0dj9Fc="} name={"Burger"} />
-          </div>
-          <div>
-            <MenuCard imgSrc={"https://media.istockphoto.com/photos/juicy-hamburger-on-white-background-picture-id1206323282?k=20&m=1206323282&s=612x612&w=0&h=yatlq6BHRCCvoTzFZLSwaJc0O8Quct_tRPWtH0dj9Fc="} name={"Burger"} />
-          </div>
-          <div>
-            <MenuCard imgSrc={"https://media.istockphoto.com/photos/juicy-hamburger-on-white-background-picture-id1206323282?k=20&m=1206323282&s=612x612&w=0&h=yatlq6BHRCCvoTzFZLSwaJc0O8Quct_tRPWtH0dj9Fc="} name={"Burger"} />
-          </div>
-          <div>
-            <MenuCard imgSrc={"https://media.istockphoto.com/photos/juicy-hamburger-on-white-background-picture-id1206323282?k=20&m=1206323282&s=612x612&w=0&h=yatlq6BHRCCvoTzFZLSwaJc0O8Quct_tRPWtH0dj9Fc="} name={"Burger"} />
-          </div>
-          
-         
+          { MenuItems && MenuItems.map(data=>(
+            <div key={data.id} >
+              <MenuCard
+               imgSrc={data.imgSrc} 
+              name={data.name} 
+              isActive={data.id===1 ? true : false}
+              
+              
+              />
+            </div>
+            
+
+          ))}
+        
           
         </div>
 
-        <div className='dishitemContainer'></div>
+        <div className='dishitemContainer'>
+              <ItemCard imgSrc={sa}
+              name={"Burger Bistro"}
+              rating={5}
+              price={"7.5"}
+              />
+        </div>
        </div>
       </div>
       <div className='rightMenu'></div>
