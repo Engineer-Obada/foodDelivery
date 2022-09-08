@@ -565,3 +565,14 @@ main{
 .itemContent .addtoCart .MuiSvgIcon-root{
     color: #FFF;
 }
+.rightMenu{
+    width: 350px;
+    height: calc(100% - 55px);
+    background-color: chocolate;
+    position:fixed;
+    top:55px;
+    right: 0;
+    z-index: 105;
+    
+
+}

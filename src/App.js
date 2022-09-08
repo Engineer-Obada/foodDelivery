@@ -12,10 +12,13 @@ import BannerName from './Component/BannerName';
 import SubMenuContainer from './Component/SubMenuContainer';
 import MenuCard from './Component/MenuCard';
 import  {MenuItems,Items}  from './Data/Data';
-import Food from './Component/Food';
 import ItemCard from './Component/ItemCard';
-import sa from './images/sa.png'
+import DebitCard from './Component/DebitCard';
 function App () {
+
+  const[isMainData, setMainData] = useState(
+    Items.filter(element => element.itemId === 'buger01')
+  )
  
   useEffect(()=>{
     const menuLi = document.querySelectorAll('#menu li');
@@ -37,7 +40,13 @@ function App () {
     menuLi.forEach( (n)=> n.addEventListener('click',setMenuActive))
     menuItem.forEach((n)=>n.addEventListener('click',setMenuItemActive))
 
-  },[])
+
+
+  },[isMainData])
+
+  const setData = (itemId) =>{
+    setMainData(Items.filter(element => element.itemId === itemId))
+  }
 
   
   return (
@@ -63,43 +72,41 @@ function App () {
         <div className='rowContainer'>
 
           { MenuItems && MenuItems.map(data=>(
-            <div key={data.id} >
+            <div key={data.id} onClick={()=>setData(data.itemId)} >
               <MenuCard
                imgSrc={data.imgSrc} 
               name={data.name} 
               isActive={data.id===1 ? true : false}
-              
-              
               />
             </div>
-            
-
-          ))}
-        
-          
+          ))}    
         </div>
 
         <div className='dishitemContainer'>
-              <ItemCard imgSrc={sa}
-              name={"Burger Bistro"}
-              rating={5}
-              price={"7.5"}
-              />
-               <ItemCard imgSrc={sa}
-              name={"Burger Bistro"}
-              rating={5}
-              price={"7.5"}
-              />
-               <ItemCard imgSrc={sa}
-              name={"Burger Bistro"}
-              rating={5}
-              price={"7.5"}
-              />
+
+          {
+            isMainData && isMainData.map(data=>(
+              
+              <ItemCard
+              key={data.id}
+              itemId={data.id}
+               imgSrc={data.imgSrc}
+              name={data.name}
+              rating={data.ratings}
+              price={data.price}
+              />       
+            ))
+          }
         </div>
-        
        </div>
       </div>
-      <div className='rightMenu'></div>
+      <div className='rightMenu'>
+        <div className='debitCardContainer'>
+          <div className='debitCard'>
+            <DebitCard />
+          </div>
+        </div>
+      </div>
 
     </main>
     {/* Bottom Menu */}

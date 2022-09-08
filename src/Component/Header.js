@@ -7,7 +7,7 @@ import image from  './obada.jpg'
 
 function Header() {
   return <header>
-    <img src='https://flyclipart.com/thumb2/burger-energy-food-junk-food-meal-veggie-burger-icon-587826.png' alt='' className='logo' />
+    <img src='https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Flogo.png?alt=media&token=fc228623-ef27-4af4-8ea5-b9ebeeaf47dc' alt='' className='logo' />
 
     <div className='inputBox'>
         <SearchIcon className='searchIcon' />
