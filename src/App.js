@@ -85,7 +85,18 @@ function App () {
               rating={5}
               price={"7.5"}
               />
+               <ItemCard imgSrc={sa}
+              name={"Burger Bistro"}
+              rating={5}
+              price={"7.5"}
+              />
+               <ItemCard imgSrc={sa}
+              name={"Burger Bistro"}
+              rating={5}
+              price={"7.5"}
+              />
         </div>
+        
        </div>
       </div>
       <div className='rightMenu'></div>
