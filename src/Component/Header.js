@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {} from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -6,6 +6,14 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import image from  './obada.jpg'
 
 function Header() {
+
+    useEffect(()=>{
+        const toggleMenu = document.querySelector(".toggleMenu")
+
+        toggleMenu.addEventListener('click',()=>{
+            document.querySelector(".rightMenu").classList.toggle('active')
+        })
+    },[])
   return <header>
     <img src='https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Flogo.png?alt=media&token=fc228623-ef27-4af4-8ea5-b9ebeeaf47dc' alt='' className='logo' />
 
