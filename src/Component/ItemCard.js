@@ -6,14 +6,17 @@ import { Items } from '../Data/Data';
 import { useStateValue } from './StateProvider';
 import { actionType } from './reducer';
 
-let cartData = []
+let cartData = [];
+let favoritData = [];
+
 function ItemCard({imgSrc,name,rating,price,itemId}) {
     const [isFavourit,setIsfavourit] = useState(false);
     const [currenValue,setICurrenValue] = useState(Math.floor(rating));
-
-
-    const[isCart, setCart] = useState(null)
     const [{}, dispatch] = useStateValue()
+    const[isCart, setCart] = useState(null)
+    const[isFavourits, setIsFavourits] = useState(null)
+    const[{itemsFavorit}, dispatch1] = useStateValue();
+    
 
     useEffect(()=>{
         if(isCart){
@@ -23,18 +26,35 @@ function ItemCard({imgSrc,name,rating,price,itemId}) {
                 cart: cartData
             })
         }
-    },[isCart])
+        if(isFavourits){
+            favoritData.push(isFavourits)
+            dispatch({
+                type: actionType.SET_FAVORIT,
+                itemsFavorit: favoritData
+            })
+        }
+    },[isCart,isFavourits])
   
     const handelClick = (value)=>{
         setICurrenValue(value)
     }
 
+    const addFavorit = ()=>{
+        console.log(itemsFavorit,"itemsFavorit");
+      const  fav = Items.find (n => n.id == itemId)
+        if(itemsFavorit.indexOf(fav) == -1){
+            setIsFavourits(Items.find(n => n.id == itemId))
+        }
+       }
+   
+    
+
   return (
     <div className='itemCard' id={itemId}>
    
         <div className={`isfavourite ${isFavourit ? 'active' : ' '}`} 
-        onClick={()=>setIsfavourit(!isFavourit)} >
-            <FavoriteIcon />
+        onClick={()=>{setIsfavourit(!isFavourit);addFavorit()}} >
+            <FavoriteIcon  />
         </div>
         <div className='imgBox'>
             <img src={imgSrc} className='itemImg'/>

@@ -12,6 +12,7 @@ function CartIttem({itemId,name, imgSrc , price}) {
    const[itemPrice, setItemPrice] = useState(parseInt(qty) * parseFloat(price))
 
    useEffect(()=>{
+    console.log(cart);
     cartItems = cart;
     setItemPrice(parseInt(qty) * parseFloat(price))
    },[qty])

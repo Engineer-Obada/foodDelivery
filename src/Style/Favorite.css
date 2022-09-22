@@ -1,0 +1,78 @@
+.FavoritContainer{
+    margin-top: 70px;
+    padding: 0px 7px 90px 7px;
+    overflow-y: scroll;
+}
+.FavoritContainer h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: #2a2a2a;
+    margin: 5px 0px 5px 0px;
+}
+.itemFavourit{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFF;
+    padding:8px 5px 8px 5px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+    
+}
+.cancel{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px 4px 0px 0px;
+}
+.cancel .MuiSvgIcon-root{
+    font-size: 1.3rem;
+    color: #4e4e4e;
+}
+.favContent{
+    width: 100%;
+}
+.favName{
+    font-size: 16px;
+}
+.favRating .MuiSvgIcon-root{
+    font-size: 15px ;
+    color: #f8901c;
+}
+.imgBox{
+    width: 240px;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.FavoritContainer  img{
+    width: 70%;
+    height: 100%;
+}
+
+.favBottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.favAddtoCart{
+    background-color: #f8901c;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    
+}
+.favAddtoCart .MuiSvgIcon-root{
+    color: #FFF;
+}

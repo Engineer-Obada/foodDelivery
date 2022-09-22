@@ -1,11 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function MenuContainer({link, icon, isHome}) {
-  return <li className={isHome ? 'active': ''}>
-    <a src={link}>
-        <span className='icon'>{icon}</span>
+  return(
+    <>   
+     
+   <li className={isHome ? 'active': ''}>
+   <Link to={link}>
+    <a >
+    <span className='icon'>{icon}</span> 
     </a>
+    </Link>
   </li>
+  </>
+
+  )
 }
 
 export default MenuContainer
