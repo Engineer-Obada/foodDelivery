@@ -24,9 +24,10 @@ function ItemCard({imgSrc,name,rating,price,itemId}) {
             dispatch({
                 type: actionType.SET_CART,
                 cart: cartData
-            })
+            }) 
         }
         if(isFavourits){
+            favoritData = itemsFavorit
             favoritData.push(isFavourits)
             dispatch({
                 type: actionType.SET_FAVORIT,
@@ -40,10 +41,11 @@ function ItemCard({imgSrc,name,rating,price,itemId}) {
     }
 
     const addFavorit = ()=>{
-        console.log(itemsFavorit,"itemsFavorit");
+     
       const  fav = Items.find (n => n.id == itemId)
         if(itemsFavorit.indexOf(fav) == -1){
-            setIsFavourits(Items.find(n => n.id == itemId))
+            console.log(Items.find(n => n.id === itemId));
+            setIsFavourits(Items.find(n => n.id === itemId))
         }
        }
    

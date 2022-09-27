@@ -25,6 +25,7 @@ import {BrowserRouter as Router,
 import Favorite from './Pages/Favorite';
 import ButtomMenu from './Component/ButtomMenu';
 import Layout from './Component/Layout/Layout';
+import AddCategory from './Pages/AddCategory';
 
 function App () {
 
@@ -35,6 +36,7 @@ function App () {
         <Routes>
         <Route exact path='/' element={<Home />}></Route>
         <Route exact  path='/Favorit' element={<Favorite />}></Route>
+        <Route exact path="/AddCategory" element={<AddCategory />}></Route>
         </Routes>
       </div>
     </Router>

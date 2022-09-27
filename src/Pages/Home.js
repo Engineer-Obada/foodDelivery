@@ -20,15 +20,12 @@ import { useStateValue } from '../Component/StateProvider';
     
     function setMenuActive(){
       menuLi.forEach((n) => n.classList.remove("active"));
-      this.classList.add("active")
-
+      this.classList.add("active");
     }
 
     function setMenuItemActive(){
-
       menuItem.forEach((n)=> n.classList.remove('active'))
       this.classList.add('active')
-
     }
 
     menuLi.forEach( (n)=> n.addEventListener('click',setMenuActive))

@@ -5,21 +5,20 @@ import  '../Style/Favorite.css'
 import { useStateValue } from './StateProvider';
 import { useEffect } from 'react';
 import { actionType } from './reducer';
-let favoritData = []
-function Favoritem({name,price,imgSrc,id}) {
 
+function Favoritem({name,price,imgSrc,id}) {
+  
   
   const [{itemsFavorit}, dispatch] = useStateValue();
   const handelCancel = (id)=>{
-    const ff = itemsFavorit.filter(n => n.id !== id)
-    console.log(ff,"itemsFavoritCancel");
- 
+   const  favoritData = itemsFavorit.filter(n => n.id != id) 
     dispatch({
       type: actionType.SET_FAVORIT,
-      itemsFavorit: ff
+      itemsFavorit: favoritData
     })
   }
 
+ 
 
      
   return (

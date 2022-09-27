@@ -4,12 +4,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import image from  './obada.jpg'
-
+import { useStateValue } from './StateProvider';
 function Header() {
+
+    const[{cart}, dispatch] = useStateValue();
+
 
     useEffect(()=>{
         const toggleMenu = document.querySelector(".toggleMenu")
-
+      
         toggleMenu.addEventListener('click',()=>{
             document.querySelector(".rightMenu").classList.toggle('active')
         })
@@ -25,7 +28,7 @@ function Header() {
     <div className='shoppingCart'>
         <ShoppingCartIcon  className='cart'/>
         <div className='cart_content'>
-            <p>2</p>
+            <p>{cart.length}</p>
         </div>
     </div>
 

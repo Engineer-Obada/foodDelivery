@@ -1,18 +1,20 @@
 export const initialState = {
-    cart: null,
+    cart: [],
     itemsFavorit:[],
-    total: 0,
+    favoritData : [],
   };
   
   export const actionType = {
     SET_CART: "SET_CART",
     SET_TOTAL: "SET_TOTAL",
-    SET_FAVORIT: "SET_FAVORIT"
+    SET_FAVORIT: "SET_FAVORIT",
+
+
   }
   
   const reducer = (state, action) => {
-    console.log(action);
-    console.log(state);
+    // console.log(action);
+    // console.log(state);
 
   
 
@@ -31,7 +33,10 @@ export const initialState = {
         return{
           ...state,
           itemsFavorit: action.itemsFavorit
-        }
+        };
+   
+
+        
       default:
         return state
     }
