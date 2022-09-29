@@ -15,8 +15,8 @@ function ButtomMenu() {
       <ul id='menu'>
         <MenuContainer  icon={<HomeIcon />} isHome link={'/'}/>
         <MenuContainer  icon={<FavoriteIcon />} link={'/Favorit'}/>
-        <MenuContainer  icon={<ChatIcon />} link={'/AddCategory'}/>
-        <MenuContainer link={"#"} icon={<AccountBalanceWalletIcon />}/>
+        <MenuContainer  icon={<ChatIcon />} link={'/Addcategory'}/>
+        <MenuContainer  icon={<AccountBalanceWalletIcon />}/>
         <MenuContainer link={"#"} icon={<SummarizeIcon />}/>
         <MenuContainer link={"#"} icon={<SettingsIcon />}/>
         <div className='indicator'> </div>
