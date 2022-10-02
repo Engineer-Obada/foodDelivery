@@ -1,8 +1,8 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
-import IconButton from '@mui/material/IconButton';
+import IconButton from "@mui/material/IconButton";
+import { useState } from "react";
 
 import {
   Button,
@@ -20,31 +20,31 @@ import {
   TextFieldsOutlined,
 } from "@mui/icons-material";
 
-const currencies = [
-  {
-    value: "USD",
-    label: "$",
-  },
-  {
-    value: "EUR",
-    label: "€",
-  },
-  {
-    value: "BTC",
-    label: "฿",
-  },
-  {
-    value: "JPY",
-    label: "¥",
-  },
-];
-
 export default function Addcategory() {
+  
+  const [inputForm, setFormInput] = useState({
+    ProductName: "",
+    Catgory: "",
+    image:"",
+    Price: "",
+  });
+
+  const handelSubmit = (evt) => {
+    evt.preventDefault();
+    console.log(inputForm);
+  };
+
+  const handelInput = (evt) => {
+    const name = evt.target.name;
+    const value = evt.target.value;
+    setFormInput({...inputForm, [name]: value})
+  };
+
   return (
     <div className="FavoritContainer">
       <Card style={{ maxWidth: 450, margin: "0 auto", padding: "10px 5px" }}>
         <CardContent>
-          <form>
+          <form onSubmit={handelSubmit}>
             <Grid container spacing={3}>
               <Grid xs={12} sm={6} item>
                 <TextField
@@ -53,26 +53,30 @@ export default function Addcategory() {
                   variant="standard"
                   placeholder="Enter Name Product"
                   fullWidth
-                  
+                  name={"ProductName"}
+                  defaultValue={inputForm.ProductName}
+                  onChange={handelInput}
                 />
               </Grid>
               <Grid xs={12} sm={6} item>
-                <FormControl   fullWidth>
+                <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-filled-label">
                     Catgory
                   </InputLabel>
                   <Select
                     labelId="demo-simple-select-filled-label"
                     id="demo-simple-select-filled"
-                   variant="standard"
-
+                    variant="standard"
+                    name={"Catgory"}
+                    defaultValue={inputForm.Catgory}
+                    onChange={handelInput}
                   >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={"Burger"}>Burger</MenuItem>
+                    <MenuItem value={"Pizza"}>Pizza</MenuItem>
+                    <MenuItem value={"Hotdog"}>Hotdog</MenuItem>
+                    <MenuItem value={"Taco"}>Taco</MenuItem>
+                    <MenuItem value={"Snack"}>Snack</MenuItem>
+                    <MenuItem value={"Drink"}>Drink</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -84,23 +88,29 @@ export default function Addcategory() {
                   variant="standard"
                   placeholder="Enter Price "
                   fullWidth
+                  name={"Price"}
+                  defaultValue={inputForm.Price}
+                  onChange={handelInput}
                 />
               </Grid>
               <Grid xs={6} sm={12} item>
                 <IconButton
+                name={"image"}
+                defaultValue={inputForm.image}
                   aria-label="upload picture"
                   component="label"
                   style={{
                     backgroundColor: "#f8901c",
                     borderRadius: "15px",
-                    color:"#FFF",
+                    color: "#FFF",
                   }}
                   sx={{
-                    mt:3
+                    mt: 3,
                   }}
-                  
                 >
-                  <input hidden accept="image/*" type="file" />
+                  <input hidden accept="image/*" type="file" 
+                  
+                  />
                   <PhotoCamera />
                 </IconButton>
               </Grid>
