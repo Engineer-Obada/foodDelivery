@@ -7,7 +7,7 @@ import {BrowserRouter as Router,
 } from 'react-router-dom'
 import Favorite from './Pages/Favorite';
 import Layout from './Component/Layout/Layout';
-import Addcategory from './Pages/Addcategory';
+import AddProduct from './Pages/AddProduct';
 
 function App () {
 
@@ -18,7 +18,7 @@ function App () {
         <Routes>
         <Route exact path='/' element={<Home />}></Route>
         <Route exact  path='/Favorit' element={<Favorite />}></Route>
-        <Route exact path='/Addcategory' element={<Addcategory />}></Route>
+        <Route exact path='/Addcategory' element={<AddProduct />}></Route>
         </Routes>
       </div>
     </Router>

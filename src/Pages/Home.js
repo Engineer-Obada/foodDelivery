@@ -16,11 +16,15 @@ import { useStateValue } from '../Component/StateProvider';
 
   useEffect(()=>{
     const menuLi = document.querySelectorAll('#menu li');
+    const fav_cont = document.querySelectorAll('.content');
     const menuItem = document.querySelectorAll('.rowMenuCard')
     
     function setMenuActive(){
       menuLi.forEach((n) => n.classList.remove("active"));
+      fav_cont.forEach((n) => n.classList.remove("active"));
       this.classList.add("active");
+      fav_cont[0].classList.add("active");
+      console.log(this,"s");
     }
 
     function setMenuItemActive(){

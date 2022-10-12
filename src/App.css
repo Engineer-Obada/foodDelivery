@@ -184,6 +184,7 @@ header{
 
 }
 
+
 .buttomMenu ul li.active a .icon .MuiSvgIcon-root{
     color: #faf9fb;
     transform: 0.5s;
@@ -232,7 +233,7 @@ header{
 .buttomMenu ul li:nth-child(1).active ~ .indicator{
     transform: translateX(calc(60px * 0));
 }
-.buttomMenu ul li:nth-child(2).active ~ .indicator{
+.buttomMenu ul li.active ~ .indicator{
     transform: translateX(calc(60px * 1));
 }
 .buttomMenu ul li:nth-child(3).active ~ .indicator{
@@ -248,7 +249,7 @@ header{
     transform: translateX(calc(60px * 5));
 }
 
-/* End Bottom Menu srtyle*/
+/* End Bottom Menu style*/
 
 /* Main Menu*/
 main{

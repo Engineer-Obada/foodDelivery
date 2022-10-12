@@ -3,6 +3,9 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
+import { Items } from "../Data/Data";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 
 import {
   Button,
@@ -20,24 +23,44 @@ import {
   TextFieldsOutlined,
 } from "@mui/icons-material";
 
-export default function Addcategory() {
-  
+export default function AddProduct() {
   const [inputForm, setFormInput] = useState({
-    ProductName: "",
-    Catgory: "",
-    image:"",
-    Price: "",
+    name: "",
+    itemId: "",
+    price: "",
+    imgSrc: "",
   });
-
-  const handelSubmit = (evt) => {
-    evt.preventDefault();
-    console.log(inputForm);
-  };
+  const [sucess, setSucess] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const handelInput = (evt) => {
     const name = evt.target.name;
     const value = evt.target.value;
-    setFormInput({...inputForm, [name]: value})
+    if (evt.target.name == "imgSrc") {
+      setFormInput({
+        ...inputForm,
+        [evt.target.name]: URL.createObjectURL(evt.target.files[0]),
+      });
+    } else {
+      setFormInput({ ...inputForm, [name]: value });
+    }
+    console.log(sucess);
+  };
+
+  const handelSubmit = (evt) => {
+    evt.preventDefault();
+    if (
+      inputForm.name &&
+      inputForm.imgSrc &&
+      inputForm.itemId &&
+      inputForm.price
+    ) {
+      Items.push(inputForm);
+      setSucess(true);
+      setFailed(false);
+    } else {
+      setFailed(true);
+    }
   };
 
   return (
@@ -53,8 +76,8 @@ export default function Addcategory() {
                   variant="standard"
                   placeholder="Enter Name Product"
                   fullWidth
-                  name={"ProductName"}
-                  defaultValue={inputForm.ProductName}
+                  name={"name"}
+                  defaultValue={inputForm.name}
                   onChange={handelInput}
                 />
               </Grid>
@@ -67,16 +90,16 @@ export default function Addcategory() {
                     labelId="demo-simple-select-filled-label"
                     id="demo-simple-select-filled"
                     variant="standard"
-                    name={"Catgory"}
-                    defaultValue={inputForm.Catgory}
+                    name={"itemId"}
+                    defaultValue={inputForm.itemId}
                     onChange={handelInput}
                   >
-                    <MenuItem value={"Burger"}>Burger</MenuItem>
-                    <MenuItem value={"Pizza"}>Pizza</MenuItem>
-                    <MenuItem value={"Hotdog"}>Hotdog</MenuItem>
-                    <MenuItem value={"Taco"}>Taco</MenuItem>
+                    <MenuItem value={"buger01"}>Burger</MenuItem>
+                    <MenuItem value={"pizza01"}>Pizza</MenuItem>
+                    <MenuItem value={"hotdog01"}>Hotdog</MenuItem>
+                    <MenuItem value={"taco01"}>Taco</MenuItem>
                     <MenuItem value={"Snack"}>Snack</MenuItem>
-                    <MenuItem value={"Drink"}>Drink</MenuItem>
+                    <MenuItem value={"drink01"}>Drink</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -88,15 +111,13 @@ export default function Addcategory() {
                   variant="standard"
                   placeholder="Enter Price "
                   fullWidth
-                  name={"Price"}
-                  defaultValue={inputForm.Price}
+                  name={"price"}
+                  defaultValue={inputForm.price}
                   onChange={handelInput}
                 />
               </Grid>
               <Grid xs={6} sm={12} item>
                 <IconButton
-                name={"image"}
-                defaultValue={inputForm.image}
                   aria-label="upload picture"
                   component="label"
                   style={{
@@ -108,8 +129,13 @@ export default function Addcategory() {
                     mt: 3,
                   }}
                 >
-                  <input hidden accept="image/*" type="file" 
-                  
+                  <input
+                    hidden
+                    accept="image/*"
+                    type="file"
+                    name={"imgSrc"}
+                    defaultValue={inputForm.imgSrc}
+                    onChange={handelInput}
                   />
                   <PhotoCamera />
                 </IconButton>
@@ -132,6 +158,25 @@ export default function Addcategory() {
           </form>
         </CardContent>
       </Card>
+      {sucess && <Alert severity="success"
+      variant="outlined"
+      sx={{mt:1}}
+      >Product added successfully</Alert>}
+      {failed ? (
+        <>
+          <Alert variant="filled" 
+          sx={{
+          mt:1,
+          backgroundColor:"rgb(248, 144, 28)",
+          }}
+          icon={false}
+          >
+          Please fill in the fields
+          </Alert>
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

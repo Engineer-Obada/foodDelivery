@@ -44,7 +44,6 @@ function ItemCard({imgSrc,name,rating,price,itemId}) {
      
       const  fav = Items.find (n => n.id == itemId)
         if(itemsFavorit.indexOf(fav) == -1){
-            console.log(Items.find(n => n.id === itemId));
             setIsFavourits(Items.find(n => n.id === itemId))
         }
        }
