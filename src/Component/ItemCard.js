@@ -24,8 +24,11 @@ function ItemCard({imgSrc,name,rating,price,itemId}) {
             dispatch({
                 type: actionType.SET_CART,
                 cart: cartData
-            }) 
+            })
         }
+    },[isCart])
+
+    useEffect(()=>{
         if(isFavourits){
             favoritData = itemsFavorit
             favoritData.push(isFavourits)
@@ -34,7 +37,7 @@ function ItemCard({imgSrc,name,rating,price,itemId}) {
                 itemsFavorit: favoritData
             })
         }
-    },[isCart,isFavourits])
+    },[isFavourit])
   
     const handelClick = (value)=>{
         setICurrenValue(value)
@@ -48,11 +51,10 @@ function ItemCard({imgSrc,name,rating,price,itemId}) {
         }
        }
    
-    
+   
 
   return (
     <div className='itemCard' id={itemId}>
-   
         <div className={`isfavourite ${isFavourit ? 'active' : ' '}`} 
         onClick={()=>{setIsfavourit(!isFavourit);addFavorit()}} >
             <FavoriteIcon  />

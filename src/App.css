@@ -183,11 +183,21 @@ header{
     transform: translateY(-26px);
 
 }
+.buttomMenu ul li.active ~ .fav_content{
+    display: none;
+
+}
+/* .buttomMenu ul li.active ~ .fav_content{
+    transform: translateY(-26px);
+    transition: 0.5s;
+
+} */
+
 
 
 .buttomMenu ul li.active a .icon .MuiSvgIcon-root{
     color: #faf9fb;
-    transform: 0.5s;
+    transition: 0.5s;
 }
 .indicator{
     position: absolute;
@@ -233,9 +243,14 @@ header{
 .buttomMenu ul li:nth-child(1).active ~ .indicator{
     transform: translateX(calc(60px * 0));
 }
-.buttomMenu ul li.active ~ .indicator{
+
+.buttomMenu  ul .fav_container  ~ .indicator{
     transform: translateX(calc(60px * 1));
+
 }
+
+
+
 .buttomMenu ul li:nth-child(3).active ~ .indicator{
     transform: translateX(calc(60px * 2));
 }
@@ -434,6 +449,7 @@ main{
 .rowMenuCard:hover .loadMenu,
 .rowMenuCard.active .loadMenu{
     background-color: #FFF;
+    rotate: 90deg;
 }
 
 .rowMenuCard .loadMenu{
@@ -444,7 +460,7 @@ main{
     justify-content: center;
     border-radius: 5px;
     background-color: #f8901c;
-    transition: 0.5s;
+    transition: 0.6s;
     margin-bottom: 5px;
 }
 .rowMenuCard .loadMenu .MuiSvgIcon-root{
@@ -454,6 +470,7 @@ main{
 .rowMenuCard:hover .loadMenu  .MuiSvgIcon-root,
 .rowMenuCard.active .loadMenu .MuiSvgIcon-root{
     color: #f8901c;
+    
 }
 .dishitemContainer{
     display: flex;

@@ -104,3 +104,27 @@
     justify-content: center;
     z-index: 111;
 }
+.fav_container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+.fav_container .fav_content{
+    width: 16px;
+    height: 16px;
+    font-size: 14px;
+    color: #FFF;
+    background:#f8901c;
+    border-radius: 100%;
+    min-width: 16px;
+    min-height: 16px;
+    z-index: 111;
+    position: absolute;
+    top:8px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

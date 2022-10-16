@@ -2,6 +2,7 @@ export const initialState = {
     cart: [],
     itemsFavorit:[],
     favoritData : [],
+    total: 0,
   };
   
   export const actionType = {
