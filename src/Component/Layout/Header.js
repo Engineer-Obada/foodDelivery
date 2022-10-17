@@ -3,8 +3,8 @@ import {} from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import image from  './obada.jpg'
-import { useStateValue } from './StateProvider';
+import image from  '../../assets/obada.jpg'
+import { useStateValue } from '../../context/StateProvider';
 function Header() {
 
     const[{cart}, dispatch] = useStateValue();

@@ -1,12 +1,12 @@
 import React from 'react'
-import '../App.css';                   
+import '../../App.css';                   
 import { useEffect, useState } from 'react';
-import BannerName from '../Component/BannerName';
-import SubMenuContainer from '../Component/SubMenuContainer';
-import MenuCard from '../Component/MenuCard';
-import  {MenuItems,Items}  from '../Data/Data';
-import ItemCard from '../Component/ItemCard';
-import { useStateValue } from '../Component/StateProvider';
+import BannerName from '../Home/BannerName';
+import SubMenuContainer from './SubMenuContainer';
+import  {MenuItems,Items}  from '../../Data/Data';
+import ItemCard from '../Home/ItemCard';
+import { useStateValue } from '../../context/StateProvider';
+import MenuCard from '../Home/MenuCard';
 
  function Home() { 
   const[isMainData, setMainData] = useState(

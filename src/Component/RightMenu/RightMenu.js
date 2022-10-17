@@ -1,7 +1,7 @@
 import React from 'react'
 import CartIttem from './CartIttem'
 import DebitCard from './DebitCard'
-import SubMenuContainer from './SubMenuContainer'
+import SubMenuContainer from '../../Pages/Home/SubMenuContainer'
 
 function RightMenu({cart}) {
   var Total = 0;

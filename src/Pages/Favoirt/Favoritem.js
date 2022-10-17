@@ -1,10 +1,10 @@
 import ClearIcon from '@mui/icons-material/Clear';
 import GradeSharpIcon from '@mui/icons-material/GradeSharp';
 import AddIcon from '@mui/icons-material/Add';
-import  '../Style/Favorite.css'
-import { useStateValue } from './StateProvider';
+import  '../../Style/Favorite.css'
+import { useStateValue } from '../../context/StateProvider';
 import { useEffect } from 'react';
-import { actionType } from './reducer';
+import { actionType } from '../../context/reducer';
 
 function Favoritem({name,price,imgSrc,id}) {
   

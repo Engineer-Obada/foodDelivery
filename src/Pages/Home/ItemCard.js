@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import GradeSharpIcon from '@mui/icons-material/GradeSharp';
 import AddIcon from '@mui/icons-material/Add';
-import { Items } from '../Data/Data';
-import { useStateValue } from './StateProvider';
-import { actionType } from './reducer';
+import { Items } from '../../Data/Data';
+import { useStateValue } from '../../context/StateProvider';
+import { actionType } from '../../context/reducer';
 
 let cartData = [];
 let favoritData = [];

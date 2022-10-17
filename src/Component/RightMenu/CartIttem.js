@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import { useStateValue } from './StateProvider';
-import { actionType } from './reducer';
+import { useStateValue } from '../../context/StateProvider';
+import { actionType } from '../../context/reducer';
 let cartItems = []
 
 function CartIttem({itemId,name, imgSrc , price}) {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import  '../Style/Favorite.css'
-import Favoritem from '../Component/Favoritem';
-import { useStateValue } from '../Component/StateProvider';
+import  '../../Style/Favorite.css'
+import Favoritem from '../Favoirt/Favoritem';
+import { useStateValue } from '../../context/StateProvider';
 
 
 
