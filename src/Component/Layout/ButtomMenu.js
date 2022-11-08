@@ -9,17 +9,21 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { useStateValue } from "../../context/StateProvider";
 
 function ButtomMenu() {
-const[{itemsFavorit}, dispatch] = useStateValue();
+  const [{ itemsFavorit }, dispatch] = useStateValue();
   return (
     <div>
       <div className="buttomMenu">
         <ul id="menu">
-          <MenuContainer icon={<HomeIcon />} isHome link={"/"} />
+          <MenuContainer icon={<HomeIcon />} isHome link={"/foodDelivery"} />
           <div className="fav_container">
             <MenuContainer icon={<FavoriteIcon />} link={"/Favorit"} />
-              {
-                itemsFavorit.length > 0 ? <div className="fav_content"><p>{itemsFavorit.length }</p> </div> : <></>
-              }
+            {itemsFavorit.length > 0 ? (
+              <div className="fav_content">
+                <p>{itemsFavorit.length}</p>{" "}
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
           <MenuContainer icon={<ChatIcon />} link={"/Addcategory"} />
           <MenuContainer icon={<AccountBalanceWalletIcon />} />
