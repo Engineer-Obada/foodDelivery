@@ -14,7 +14,7 @@ function ButtomMenu() {
     <div>
       <div className="buttomMenu">
         <ul id="menu">
-          <MenuContainer icon={<HomeIcon />} isHome link={"/foodDelivery"} />
+          <MenuContainer icon={<HomeIcon />} isHome link={"/"} />
           <div className="fav_container">
             <MenuContainer icon={<FavoriteIcon />} link={"/Favorit"} />
             {itemsFavorit.length > 0 ? (
