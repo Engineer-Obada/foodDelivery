@@ -3,15 +3,12 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import { useStateValue } from "../../context/StateProvider";
 import { actionType } from "../../context/reducer";
-let cartItems = [];
 
 function CartIttem({ itemId, name, imgSrc, price }) {
-  var t = 0;
   let s = [];
   const [qty, setQty] = useState(1);
   const [{ cart, total }, dispatch] = useStateValue();
   const [itemPrice, setItemPrice] = useState(parseInt(qty) * parseFloat(price));
-  const [Total, setTotal] = useState(t + itemPrice);
 
   useEffect(() => {
     setItemPrice(parseInt(qty) * parseFloat(price));
@@ -19,20 +16,41 @@ function CartIttem({ itemId, name, imgSrc, price }) {
 
   useEffect(() => {
     s = total;
-    s.push(itemPrice);
+    s.push(parseFloat(price));
+
     dispatch({
       type: actionType.SET_TOTAL,
       total: s,
     });
+
     console.log(total);
-  }, [cart, qty]);
+  }, [cart]);
 
   const updateQuantity = (action, id) => {
     if (action === "add") {
       setQty(qty + 1);
+      s = total;
+      s.push(parseFloat(price));
+
+      dispatch({
+        type: actionType.SET_TOTAL,
+        total: s,
+      });
+
+      console.log(total);
     } else {
       if (qty > 1) {
         setQty(qty - 1);
+        s = total;
+        const index = s.indexOf(parseFloat(price));
+        console.log(price);
+        if (index > -1) {
+          s.splice(index, 1); // 2nd parameter means remove one item only
+        }
+        dispatch({
+          type: actionType.SET_TOTAL,
+          total: s,
+        });
       }
     }
   };
