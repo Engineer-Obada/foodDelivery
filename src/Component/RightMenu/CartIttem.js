@@ -5,7 +5,7 @@ import { useStateValue } from "../../context/StateProvider";
 import { actionType } from "../../context/reducer";
 
 function CartIttem({ itemId, name, imgSrc, price }) {
-  let s = [];
+  let sum = [];
   const [qty, setQty] = useState(1);
   const [{ cart, total }, dispatch] = useStateValue();
   const [itemPrice, setItemPrice] = useState(parseInt(qty) * parseFloat(price));
@@ -15,12 +15,12 @@ function CartIttem({ itemId, name, imgSrc, price }) {
   }, [qty]);
 
   useEffect(() => {
-    s = total;
-    s.push(parseFloat(price));
+    sum = total;
+    sum.push(parseFloat(price));
 
     dispatch({
       type: actionType.SET_TOTAL,
-      total: s,
+      total: sum,
     });
 
     console.log(total);
@@ -29,27 +29,27 @@ function CartIttem({ itemId, name, imgSrc, price }) {
   const updateQuantity = (action, id) => {
     if (action === "add") {
       setQty(qty + 1);
-      s = total;
-      s.push(parseFloat(price));
+      sum = total;
+      sum.push(parseFloat(price));
 
       dispatch({
         type: actionType.SET_TOTAL,
-        total: s,
+        total: sum,
       });
 
       console.log(total);
     } else {
       if (qty > 1) {
         setQty(qty - 1);
-        s = total;
-        const index = s.indexOf(parseFloat(price));
+        sum = total;
+        const index = sum.indexOf(parseFloat(price));
         console.log(price);
         if (index > -1) {
-          s.splice(index, 1); // 2nd parameter means remove one item only
+          sum.splice(index, 1); // 2nd parameter means remove one item only
         }
         dispatch({
           type: actionType.SET_TOTAL,
-          total: s,
+          total: sum,
         });
       }
     }

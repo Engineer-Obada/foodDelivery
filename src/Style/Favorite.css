@@ -128,3 +128,24 @@
     justify-content: center;
 
 }
+
+@media  screen and (min-width:950px){
+    .FavoritContainer .notfound img{
+        width: 40%;
+        margin-right: 210px
+    }
+    .FavoritContainer .notfound{
+        display: flex;
+        justify-content: center;
+
+    }
+    .fav_container .fav_content{
+        rotate: -90deg;
+        right: 31px;
+    }
+    .itemFavourit{
+        left: 120px;
+        width: 60%;
+        margin-top: 39px;
+    }
+}

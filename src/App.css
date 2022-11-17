@@ -874,12 +874,16 @@ main{
         display: block;
     }
     .buttomMenu{
-        left: 21%;
+        left: -18%;
+        top:50%;
         width: 40%;
+        rotate: 90deg;
     }
     .mainContainer{
-        width: calc(100% - 350px);
+        width: calc(100% - 491px);
         padding: 10px 30px;
+        position: relative;
+        left: 90px;
     }
     .banner{
         height: 160px;
@@ -908,6 +912,7 @@ main{
         z-index: 1;
         top: unset;
         padding: 20px 15px;
+        top:61px;
     }
     .itemCard{
         width: 180px;
@@ -916,4 +921,8 @@ main{
     .rowMenuCard{
         width: 113px;
     }
+    .buttomMenu ul li a .icon .MuiSvgIcon-root {
+        rotate: -90deg;
+    }
+  
 }
