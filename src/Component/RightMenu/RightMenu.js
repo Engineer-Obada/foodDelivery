@@ -4,9 +4,8 @@ import DebitCard from "./DebitCard";
 import SubMenuContainer from "../../Pages/Home/SubMenuContainer";
 import { useStateValue } from "../../context/StateProvider";
 
-function RightMenu({ cart }) {
-  var Total = 0;
-  const [{ total }, dispatch] = useStateValue();
+function RightMenu() {
+  const [{ total, cart }] = useStateValue();
   let sum = 0;
 
   for (const value of total) {

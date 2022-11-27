@@ -22,8 +22,6 @@ function CartIttem({ itemId, name, imgSrc, price }) {
       type: actionType.SET_TOTAL,
       total: sum,
     });
-
-    console.log(total);
   }, [cart]);
 
   const updateQuantity = (action, id) => {
@@ -43,7 +41,6 @@ function CartIttem({ itemId, name, imgSrc, price }) {
         setQty(qty - 1);
         sum = total;
         const index = sum.indexOf(parseFloat(price));
-        console.log(price);
         if (index > -1) {
           sum.splice(index, 1); // 2nd parameter means remove one item only
         }

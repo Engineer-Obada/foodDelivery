@@ -1,36 +1,38 @@
-import React, { useEffect } from 'react'
-import  '../../Style/Favorite.css'
-import Favoritem from '../Favoirt/Favoritem';
-import { useStateValue } from '../../context/StateProvider';
-
-
-
+import React, { useEffect } from "react";
+import "../../Style/Favorite.css";
+import Favoritem from "../Favoirt/Favoritem";
+import { useStateValue } from "../../context/StateProvider";
 
 function Favorite() {
-
-const[{itemsFavorit}, dispatch] = useStateValue();
+  const [{ itemsFavorit }, dispatch] = useStateValue();
 
   return (
-    <div className='FavoritContainer'>
+    <div className="FavoritContainer">
       {/* <h1 className='Myfavorit'>My Favourit</h1>
- */}
+       */}
 
-      {itemsFavorit.length >  0  ? itemsFavorit.map((data)=>(
+      {itemsFavorit.length > 0 ? (
+        itemsFavorit.map((data) => (
           <Favoritem
-          key={data.id}
-          id={data.id}
-          name={data.name}
-          price={data.price}
-          imgSrc = {data.imgSrc}
+            key={data.id}
+            id={data.id}
+            name={data.name}
+            price={data.price}
+            imgSrc={data.imgSrc}
           />
-      )) : 
+        ))
+      ) : (
         <div className="notfound">
-          <img src={"https://study91.co.in/Scripts/assets/images/prasad_img/no-product-found.png"} alt={"Not Found"} />
+          <img
+            src={
+              "https://study91.co.in/Scripts/assets/images/prasad_img/no-product-found.png"
+            }
+            alt={"Not Found"}
+          />
         </div>
-     }
-     
+      )}
     </div>
-  )
+  );
 }
 
-export default Favorite
+export default Favorite;
