@@ -7,7 +7,6 @@ import { useStateValue } from "../../context/StateProvider";
 import { actionType } from "../../context/reducer";
 import Test from "./Test";
 
-let cartData = [];
 let favoritData = [];
 
 function ItemCard({ imgSrc, name, rating, price, itemId }) {
@@ -15,7 +14,7 @@ function ItemCard({ imgSrc, name, rating, price, itemId }) {
   const [currenValue, setICurrenValue] = useState(Math.floor(rating));
   const [{}, dispatch] = useStateValue();
   const [isFavourits, setIsFavourits] = useState(null);
-  const [{ itemsFavorit }, dispatch1] = useStateValue();
+  const [{ itemsFavorit }] = useStateValue();
 
   const [setCart] = Test();
 

@@ -3,7 +3,6 @@ import GradeSharpIcon from "@mui/icons-material/GradeSharp";
 import AddIcon from "@mui/icons-material/Add";
 import "../../Style/Favorite.css";
 import { useStateValue } from "../../context/StateProvider";
-import { useEffect, useState } from "react";
 import { actionType } from "../../context/reducer";
 import { Items } from "../../Data/Data";
 import Test from "../Home/Test";
