@@ -65,7 +65,7 @@ export default function AddProduct() {
 
   return (
     <div className="FavoritContainer">
-      <Card style={{ maxWidth: 450, margin: "0 auto", padding: "10px 5px" }}>
+      <Card style={{ maxWidth: 650, margin: "0 auto", padding: "10px 5px" }}>
         <CardContent>
           <form onSubmit={handelSubmit}>
             <Grid container spacing={3}>
@@ -154,29 +154,35 @@ export default function AddProduct() {
                   ADD New Product
                 </Button>
               </Grid>
+              <Grid xs={12} item>
+                {sucess && (
+                  <Alert severity="success" variant="outlined" sx={{ mt: 1 }}>
+                    Product added successfully
+                  </Alert>
+                )}
+              </Grid>
+              <Grid xs={12} item>
+                {failed ? (
+                  <>
+                    <Alert
+                      variant="filled"
+                      sx={{
+                        mt: 1,
+                        backgroundColor: "rgb(248, 144, 28)",
+                      }}
+                      icon={false}
+                    >
+                      Please fill in the fields
+                    </Alert>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </Grid>
             </Grid>
           </form>
         </CardContent>
       </Card>
-      {sucess && <Alert severity="success"
-      variant="outlined"
-      sx={{mt:1}}
-      >Product added successfully</Alert>}
-      {failed ? (
-        <>
-          <Alert variant="filled" 
-          sx={{
-          mt:1,
-          backgroundColor:"rgb(248, 144, 28)",
-          }}
-          icon={false}
-          >
-          Please fill in the fields
-          </Alert>
-        </>
-      ) : (
-        <></>
-      )}
     </div>
   );
 }
